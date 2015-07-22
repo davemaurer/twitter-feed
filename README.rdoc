@@ -1,0 +1,16 @@
+== README
+Consider a basic version of the Twitter feed. I should be able to:
+
+Authenticate with my Twitter account
+View a list of recent tweets from my feed
+See my basic profile information (profile pic, follower count, following count, etc)
+Post a tweet
+Favorite a tweet
+Additional possible interactions include:
+
+Retweeting a tweet
+Replying to a tweet
+Use a paginated or infinite-scroll interface to view more tweets
+Unfollow a user
+
+<%= auto_link(tweet.text).html_safe %>
