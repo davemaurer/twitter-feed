@@ -10,11 +10,10 @@ RSpec.feature "the user" do
 
     expect(page.status_code).to eq(200)
 
-    click_on("Login")
+    click_on("Login with Twitter")
 
-    expect(current_path).to eq("/")
-    expect(page).to have_content("Dave")
-    expect(page).to have_link("Logout")
+    expect(current_path).to eq("/dashboard")
+    expect(page).to have_content("dmaurer")
   end
 
   def stub_omniauth

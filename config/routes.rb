@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   get '/auth/twitter/callback', to: 'sessions#create'
 
-  resources :dashboard, only: [:index, :show]
+  resources :tweets, only: [:create, :new]
+
+  resources :dashboard, only: [:index]
 
   get '/logout', as: :logout, to: 'sessions#destroy'
 end

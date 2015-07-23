@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   def self.from_omniauth(auth_info)
-    if user = find_by(uid: auth_info.extra.raw_info.user_id)
+    if user = find_by(uid: auth_info.extra.raw_info.uid)
       user
     else
       create({name: auth_info.extra.raw_info.name,
@@ -25,10 +25,6 @@ class User < ActiveRecord::Base
   def twitter_timeline
     twitter_client.home_timeline
   end
-
-  # def profile_picture
-  #   twitter_client.user.profile_image_uri_https
-  # end
 
   def follower_count
     twitter_client.user.followers_count
