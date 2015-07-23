@@ -36,8 +36,8 @@
     <nav>
       <ul class="nav nav-pills pull-right">
         <li role="presentation" class="active"><%= link_to "Logout", logout_path %></li>
-        <li role="presentation"><a href="#">About</a></li>
-        <li role="presentation"><a href="#">Contact</a></li>
+        <!--<li role="presentation"><a href="#">About</a></li>-->
+        <!--<li role="presentation"><a href="#">Contact</a></li>-->
       </ul>
     </nav>
     <h3 class="text-muted">TwitterFeed</h3>
@@ -52,7 +52,7 @@
     <h3>Location: <%= current_user.location %></h3>
     <h5><%= current_user.description %></h5>
 
-    <%= image_tag "#{current_user.background_picture}", size: "70x70", alt: "Awesome Pic!" %>
+    <%= image_tag "#{current_user.background_picture}", alt: "Awesome Pic!" %>
 
     <p><a class="btn btn-lg btn-success" href="#" role="button">Tweet</a></p>
   </div>
