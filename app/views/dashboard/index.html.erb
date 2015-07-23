@@ -45,7 +45,7 @@
 
   <div class="jumbotron">
     <h2>Hello, <%= current_user.name %></h2>
-    <%= image_tag src=current_user[:profile_picture], size: "90x90", class: "img-circle img-thumbnail", alt: "Awesome Pic!" %>
+    <%= image_tag src=current_user[:profile_picture], size: "110x110", class: "img-circle img-thumbnail", alt: "Awesome Pic!" %>
     <h4><%= current_user.screen_name %></h4>
     <h4>Followers: <%= current_user.follower_count %></h4>
     <h4>Following: <%= current_user.following_count %></h4>
