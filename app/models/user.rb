@@ -36,13 +36,9 @@ class User < ActiveRecord::Base
 
   def background_picture
     twitter_client.user.profile_background_image_url_https
-    end
+  end
 
   def location
     twitter_client.user.location
-    end
-
-  def description
-    twitter_client.user.description
   end
 end

@@ -71,7 +71,7 @@
       <p>
       <ol>
         <% current_user.twitter_timeline.each do |tweet| %>
-          <li><%= tweet.text %></li>
+          <li><%= link_to "favorite", tweet_path(id: "#{tweet.id}"),method: :put, class: "btn btn-tny btn-danger" %><%= tweet.text %></li>
         <% end %>
       </ol>
       </p>
