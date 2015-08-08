@@ -1,16 +1,16 @@
 class User < ActiveRecord::Base
   def self.from_omniauth(auth_info)
-    if user = find_by(uid: auth_info.uid)
-      user
-    else
-      create({name: auth_info.extra.raw_info.name,
-          screen_name: auth_info.extra.raw_info.screen_name,
-          uid: auth_info.uid,
-          profile_picture: auth_info.extra.raw_info.profile_image_url,
-          oauth_token: auth_info.credentials.token,
-          oauth_token_secret: auth_info.credentials.secret
-          })
-    end
+    user = find_or_create_by(uid: auth_info.uid)
+    #so we can make sure changes are reflected. update_attributes and find_or_create_by are built in methods
+    user.update_attributes(
+      name:               auth_info.extra.raw_info.name,
+      screen_name:        auth_info.extra.raw_info.screen_name,
+      profile_picture:    auth_info.extra.raw_info.profile_image_url,
+      oauth_token:        auth_info.credentials.token,
+      oauth_token_secret: auth_info.credentials.secret
+    )
+
+    user
   end
 
   def twitter_client

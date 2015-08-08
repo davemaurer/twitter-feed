@@ -16,6 +16,30 @@ RSpec.feature "the user" do
     expect(page).to have_content("dmaurer")
   end
 
+  it "logs out" do
+    visit "/"
+
+    click_on("Login with Twitter")
+
+    expect(current_path).to eq("/dashboard")
+
+    within(".nav") do
+    click_link("Logout")
+    end
+
+    expect(current_path).to eq("/")
+  end
+
+  it "sees tweets" do
+    visit "/"
+
+    click_on("Login with Twitter")
+
+    expect(page).to have_content("Feeding...Forever")
+    expect(page).to have_content("1")
+    expect(page).to have_content("20")
+  end
+
   def stub_omniauth
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({

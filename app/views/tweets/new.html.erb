@@ -30,7 +30,7 @@
 
   <div class="jumbotron">
     <h2>Brand New Tweet</h2>
-    <%= form_tag(tweets_path, method: :post) do %>
+    <%= form_tag(tweets_path) do %>
       <%= label_tag :tweet %>
       <%= text_field_tag :tweet %>
       <%= submit_tag "tweet it", class: "btn btn-sm btn-success" %>
